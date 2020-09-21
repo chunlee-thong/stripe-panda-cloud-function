@@ -30,8 +30,8 @@ exports.sendNotificationToUser = functions.https.onRequest(
     admin
       .messaging()
       .sendToTopic(userId, payload)
-      .then(() => {
-        res.send({ message: "Send notification to user success" });
+      .then((result) => {
+        res.send(result);
       })
       .catch((err) => res.send(err));
   }
