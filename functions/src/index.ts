@@ -24,7 +24,7 @@ exports.sendNotificationToUser = functions.https.onRequest(
           "Thank for purchasing from our app, we will delivery to you soon!",
         badge: "1",
         sound: "default",
-        clickAction: "FLUTTER_NOTIFICAION_CLICK",
+        clickAction: "FLUTTER_NOTIFICATION_CLICK",
       },
     };
     admin
