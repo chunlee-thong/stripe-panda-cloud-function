@@ -3,11 +3,9 @@ import * as admin from "firebase-admin";
 
 admin.initializeApp(functions.app.admin.options);
 
-exports.testing = functions.https.onRequest(
-  async (req: functions.https.Request, res: functions.Response) => {
-    res.send({ message: "This is testing" });
-  }
-);
+exports.testing = functions.https.onRequest(async (req: functions.https.Request, res: functions.Response) => {
+  res.send({ message: "This is testing" });
+});
 
 exports.sendNotificationToUser = functions.https.onRequest(
   async (req: functions.https.Request, res: functions.Response) => {
@@ -17,11 +15,10 @@ exports.sendNotificationToUser = functions.https.onRequest(
       return;
     }
 
-    const payload = {
+    var payload: admin.messaging.MessagingPayload = {
       notification: {
         title: "Thank for purchasing",
-        body:
-          "Thank for purchasing from our app, we will delivery to you soon!",
+        body: "Thank for purchasing from our app, we will delivery to you soon!",
         badge: "1",
         sound: "default",
         clickAction: "FLUTTER_NOTIFICATION_CLICK",
